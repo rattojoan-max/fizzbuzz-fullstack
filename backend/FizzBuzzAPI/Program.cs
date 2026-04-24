@@ -14,9 +14,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/fizzbuzz", () =>
+app.MapGet("/fizzbuzz", (int start, int end) =>
 {
-    var fizzbuzz =  Enumerable.Range(1, 100).Select(index =>
+    var fizzbuzz =  Enumerable.Range(start, end - start + 1).Select(index =>
         new FizzBuzz
         (
             index,
